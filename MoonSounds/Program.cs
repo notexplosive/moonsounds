@@ -5,12 +5,24 @@ using MoonSounds;
 var commandLineParameters = new CommandLineParameters(args);
 commandLineParameters.RegisterParameter<bool>("help", "Prints help message");
 commandLineParameters.RegisterParameter<int>("sampleRate", "Number of samples per second (default 48000)");
+commandLineParameters.RegisterParameter<bool>("showProgress", "Logs progress");
+commandLineParameters.RegisterParameter<float>("duration", "Duration of resulting sound in seconds (default: 5)");
+commandLineParameters.RegisterParameter<string>("output", "Name of output file (default: name of input file with wav extension)");
 
 var commandLineArguments = commandLineParameters.Args;
 
 if (commandLineArguments.GetValue<bool>("help"))
 {
+    Console.WriteLine($"Usage: {Environment.GetCommandLineArgs()[0]} [some_file.lua] [flags]");
     Console.WriteLine(commandLineArguments.HelpOutput());
+}
+
+var shouldShowProgress = commandLineArguments.GetValue<bool>("showProgress");
+var duration = commandLineArguments.GetValue<float>("duration");
+
+if (duration == 0f)
+{
+    duration = 5f;
 }
 
 var sampleRate = commandLineArguments.GetValue<int>("sampleRate");
@@ -26,6 +38,13 @@ if (string.IsNullOrEmpty(fileName))
 {
     Console.WriteLine("No file provided");
     return;
+}
+
+var wavFileName = fileName.RemoveFileExtension() + ".wav";
+var givenOutputFile = commandLineArguments.GetValue<string>("output");
+if (!string.IsNullOrWhiteSpace(givenOutputFile) && givenOutputFile.IndexOfAny(Path.GetInvalidFileNameChars()) < 0)
+{
+    wavFileName = givenOutputFile;
 }
 
 var fileSystem = new RealFileSystem(".");
@@ -47,11 +66,23 @@ if (luaRuntime.CurrentError != null)
 
 var sampleIncrement = 1f / sampleRate;
 var foundFunction = resultFunction.Function;
+var lastTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 if (foundFunction != null)
 {
     var frames = new List<float>();
-    for (var t = 0f; t < 5f; t += sampleIncrement)
+    for (var t = 0f; t < duration; t += sampleIncrement)
     {
+        if (shouldShowProgress)
+        {
+            var now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            if (now - lastTime > 500)
+            {
+                lastTime = now;
+                Console.WriteLine($"{t / duration * 100:F0}%");
+            }
+            
+        }
+        
         var sample = luaRuntime.SafeCallFunction(foundFunction, t);
         if (luaRuntime.CurrentError != null)
         {
@@ -71,7 +102,6 @@ if (foundFunction != null)
         frames.Add((float) outputAsNumber);
     }
 
-    var wavFileName = fileName + ".wav";
     fileSystem.WriteToFileBytes(wavFileName, WriteWav.WriteWavFile(frames.ToArray(), sampleRate));
     Console.WriteLine($"Finished writing file: {wavFileName}");
 }

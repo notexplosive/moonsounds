@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoonSounds")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e50d81312c2d7dddab19a5725d81436600bd10a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1405e7467a23fa4fa588c918b9c66935bf0462a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoonSounds")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoonSounds")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
