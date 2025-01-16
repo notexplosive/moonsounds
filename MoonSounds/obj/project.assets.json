@@ -102,8 +102,8 @@
     },
     "ExplogineCore/1.0.0": {
       "type": "project",
-      "path": "explogine/Library/ExplogineCore/ExplogineCore.csproj",
-      "msbuildProject": "explogine/Library/ExplogineCore/ExplogineCore.csproj"
+      "path": "../explogine/Library/ExplogineCore/ExplogineCore.csproj",
+      "msbuildProject": "../explogine/Library/ExplogineCore/ExplogineCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -118,11 +118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dev\\csharp\\MoonSounds\\MoonSounds.csproj",
+      "projectUniqueName": "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\MoonSounds.csproj",
       "projectName": "MoonSounds",
-      "projectPath": "D:\\dev\\csharp\\MoonSounds\\MoonSounds.csproj",
+      "projectPath": "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\MoonSounds.csproj",
       "packagesPath": "C:\\Users\\Wyatt\\.nuget\\packages\\",
-      "outputPath": "D:\\dev\\csharp\\MoonSounds\\obj\\",
+      "outputPath": "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"

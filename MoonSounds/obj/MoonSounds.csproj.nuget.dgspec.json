@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dev\\csharp\\MoonSounds\\MoonSounds.csproj": {}
+    "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\MoonSounds.csproj": {}
   },
   "projects": {
     "D:\\dev\\csharp\\MoonSounds\\explogine\\Library\\ExplogineCore\\ExplogineCore.csproj": {
@@ -73,14 +73,14 @@
         }
       }
     },
-    "D:\\dev\\csharp\\MoonSounds\\MoonSounds.csproj": {
+    "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\MoonSounds.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dev\\csharp\\MoonSounds\\MoonSounds.csproj",
+        "projectUniqueName": "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\MoonSounds.csproj",
         "projectName": "MoonSounds",
-        "projectPath": "D:\\dev\\csharp\\MoonSounds\\MoonSounds.csproj",
+        "projectPath": "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\MoonSounds.csproj",
         "packagesPath": "C:\\Users\\Wyatt\\.nuget\\packages\\",
-        "outputPath": "D:\\dev\\csharp\\MoonSounds\\obj\\",
+        "outputPath": "D:\\dev\\csharp\\MoonSounds\\MoonSounds\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
