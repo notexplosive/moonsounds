@@ -16,7 +16,7 @@ For example:
 -- contents of test.lua
 return function(t)
     -- create a function that represents a normalized (1hz) sine wave
-    function normalSin(pitch)
+    local function normalSin(pitch)
         return math.sin(t * math.pi * 2 * pitch)
     end
 
