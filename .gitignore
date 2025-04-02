@@ -460,3 +460,5 @@ $RECYCLE.BIN/
 todo.txt
 .build
 .iconset
+
+*.wav
